@@ -32,3 +32,18 @@ func hookGen(hooktmp hook.Hook) string {
 	}
 	return hk
 }
+
+func perfMap() string{
+	perfTemplate :=
+`
+//go:build ignore
+#include "vmlinux.h"
+#include "bpf_helpers.h"
+
+
+SEC("%s)
+
+`
+
+return perfTemplate
+}
